@@ -1,0 +1,7 @@
+
+install:
+  # install vim from chocolatey, the default vim did not work, using this one
+  - choco install vim-tux.portable
+build: off
+test_script:
+  - vim --cmd "let g:quit_after_tests=1 | source test.vim"
