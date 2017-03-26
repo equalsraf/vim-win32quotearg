@@ -26,6 +26,13 @@ let &shellxquote=' '
 call assert_equal("a b\n", system(QuoteW32Arg('echo "a b"')))
 
 for err in v:errors
-	echoerr err 
+	echoerr err
 endfor
 
+if exists('g:quit_after_tests')
+	if len(v:errors) > 0
+		cq
+	else
+		quit
+	endif
+endif
