@@ -1,5 +1,5 @@
 
-source win32quotearg.vim
+source plugin/win32quotearg.vim
 
 " first lets test our function for sanity
 let v:errors = []

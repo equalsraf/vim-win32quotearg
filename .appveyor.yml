@@ -2,6 +2,9 @@
 install:
   # install vim from chocolatey, the default vim did not work, using this one
   - choco install vim-tux.portable
+  - ps: appveyor DownloadFile "https://ci.appveyor.com/api/projects/neovim/neovim/artifacts/build/Neovim.zip?branch=master&job=Configuration%3A%20MINGW_64"
+  - 7z x Neovim.zip
 build: off
 test_script:
   - vim --cmd "let g:quit_after_tests=1 | source test.vim"
+  - Neovim\bin\nvim.exe --cmd "let g:quit_after_tests=1 | source test.vim"
